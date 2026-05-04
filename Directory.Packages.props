@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
         <EfCoreVersion Condition="'$(EfCoreVersion)' == ''">10.0.7</EfCoreVersion>
-        <NpgsqlEfCoreVersion Condition="'$(NpgsqlEfCoreVersion)' == ''">10.0.0</NpgsqlEfCoreVersion>
+        <NpgsqlEfCoreVersion Condition="'$(NpgsqlEfCoreVersion)' == ''">10.0.1</NpgsqlEfCoreVersion>
     </PropertyGroup>
 
     <ItemGroup>
