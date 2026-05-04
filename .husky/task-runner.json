@@ -1,0 +1,31 @@
+{
+  "$schema": "https://alirezanet.github.io/Husky.Net/schema.json",
+  "tasks": [
+    {
+      "name": "csharpier-format",
+      "group": "pre-commit",
+      "command": "dotnet",
+      "args": ["csharpier", "format", "${staged}"],
+      "include": ["**/*.cs"]
+    },
+    {
+      "name": "restage-formatted",
+      "group": "pre-commit",
+      "command": "git",
+      "args": ["add", "${staged}"],
+      "include": ["**/*.cs"]
+    },
+    {
+      "name": "dotnet-test",
+      "group": "pre-commit",
+      "command": "dotnet",
+      "args": [
+        "test",
+        "tests/EntityFrameworkCore.ExtensibleMigrations.Tests/EntityFrameworkCore.ExtensibleMigrations.Tests.csproj",
+        "--nologo",
+        "--verbosity",
+        "quiet"
+      ]
+    }
+  ]
+}

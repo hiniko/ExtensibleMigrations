@@ -1,0 +1,30 @@
+name: Bug report
+description: Report something broken
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What did you expect, what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Repro
+      description: Smallest code that triggers it.
+    validations:
+      required: true
+  - type: input
+    id: efver
+    attributes:
+      label: EF Core version
+    validations:
+      required: true
+  - type: input
+    id: pkgver
+    attributes:
+      label: ExtensibleMigrations version
+    validations:
+      required: true

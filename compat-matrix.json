@@ -1,0 +1,18 @@
+{
+  "matrix": [
+    {
+      "name": "ef-10.0.7",
+      "efCoreVersion": "10.0.7",
+      "npgsqlEfCoreVersion": "10.0.0",
+      "dotnetEfToolVersion": "10.0.7",
+      "dotnetSdkVersion": "10.0.x"
+    },
+    {
+      "name": "ef-10.0.5",
+      "efCoreVersion": "10.0.5",
+      "npgsqlEfCoreVersion": "10.0.0",
+      "dotnetEfToolVersion": "10.0.5",
+      "dotnetSdkVersion": "10.0.x"
+    }
+  ]
+}

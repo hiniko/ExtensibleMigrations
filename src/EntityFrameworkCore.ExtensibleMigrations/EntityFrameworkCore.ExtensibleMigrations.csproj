@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>EntityFrameworkCore.ExtensibleMigrations</RootNamespace>
+        <AssemblyName>EntityFrameworkCore.ExtensibleMigrations</AssemblyName>
+        <IsPackable>true</IsPackable>
+        <PackageId>EntityFrameworkCore.ExtensibleMigrations</PackageId>
+        <Description>Plug custom MigrationOperation types into EF Core's design-time migration pipeline.</Description>
+        <PackageTags>entity-framework-core;ef-core;migrations;design-time</PackageTags>
+        <Authors>hiniko</Authors>
+        <Company>hiniko</Company>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryType>git</RepositoryType>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../../README.md" Pack="true" PackagePath="\" />
+        <None
+            Include="buildTransitive/EntityFrameworkCore.ExtensibleMigrations.targets"
+            Pack="true"
+            PackagePath="buildTransitive/"
+        />
+        <None
+            Include="buildTransitive/_ExtensibleMigrationsAutoDesignTimeServices.cs"
+            Pack="true"
+            PackagePath="buildTransitive/"
+        />
+        <!-- Don't compile the buildTransitive .cs file into the package itself. -->
+        <Compile Remove="buildTransitive/**/*.cs" />
+        <None
+            Update="buildTransitive/_ExtensibleMigrationsAutoDesignTimeServices.cs"
+            Visible="false"
+        />
+    </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="EntityFrameworkCore.ExtensibleMigrations.Tests" />
+    </ItemGroup>
+</Project>
