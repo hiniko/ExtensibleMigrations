@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <IsPackable>false</IsPackable>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    </ItemGroup>
+    <ItemGroup>
+        <!-- EmRepoRoot is injected by FixtureProject.Copy when running in a temp dir;
+         falls back to the relative path when building inside the repo. -->
+        <ProjectReference
+            Condition="'$(EmRepoRoot)' != ''"
+            Include="$(EmRepoRoot)/src/EntityFrameworkCore.ExtensibleMigrations/EntityFrameworkCore.ExtensibleMigrations.csproj"
+        />
+        <ProjectReference
+            Condition="'$(EmRepoRoot)' == ''"
+            Include="..\..\..\..\src\EntityFrameworkCore.ExtensibleMigrations\EntityFrameworkCore.ExtensibleMigrations.csproj"
+        />
+    </ItemGroup>
+</Project>

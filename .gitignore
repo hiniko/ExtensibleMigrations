@@ -1,0 +1,90 @@
+# Build output
+bin/
+obj/
+out/
+artifacts/
+publish/
+[Dd]ebug/
+[Rr]elease/
+[Dd]ebugPublic/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Ll]og/
+[Ll]ogs/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+.nuget/
+packages/
+!**/packages/build/
+project.lock.json
+project.fragment.lock.json
+
+# Test results / coverage
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+coverage*.info
+*.VisualState.xml
+TestResult.xml
+[Bb]uild[Ll]og.*
+
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.dbmdl
+*.jfm
+*.psess
+*.vsp
+*.vspx
+*.sap
+*.svclog
+
+# JetBrains Rider per-user
+*.DotSettings.user
+
+# .NET Core / SDK
+*.swp
+*.*~
+project.lock.json
+.dotnet/
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Tooling
+.config/dotnet-tools.json.bak
+
+# Generated migrations in samples / fixtures must stay untracked
+samples/*/Migrations/
+tests/integration/fixtures/*/Migrations/
+
+# Local environment
+*.env
+.env.local
+.env.*.local
+
+# Misc temp
+*.bak
+*.tmp
+*.orig

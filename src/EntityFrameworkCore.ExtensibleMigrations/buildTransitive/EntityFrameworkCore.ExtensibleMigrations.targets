@@ -1,0 +1,20 @@
+<Project>
+    <!--
+    Injects a tiny IDesignTimeServices class directly into the consumer's
+    compile. EF Core discovers types implementing IDesignTimeServices from the
+    startup project assembly AFTER running the database provider's design-time
+    services, which means our wrappers correctly sit on top of provider
+    overrides.
+
+    [assembly: DesignTimeServicesReference] alone is insufficient because EF
+    runs referenced design-time services BEFORE provider services, so any wrap
+    registered there gets overwritten by the provider's later registration.
+  -->
+    <ItemGroup>
+        <Compile
+            Include="$(MSBuildThisFileDirectory)_ExtensibleMigrationsAutoDesignTimeServices.cs"
+            Link="EntityFrameworkCore.ExtensibleMigrations.Generated\_ExtensibleMigrationsAutoDesignTimeServices.cs"
+            Visible="false"
+        />
+    </ItemGroup>
+</Project>

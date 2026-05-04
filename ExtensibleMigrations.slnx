@@ -1,0 +1,16 @@
+<Solution>
+    <Folder Name="/src/">
+        <Project Path="src/EntityFrameworkCore.ExtensibleMigrations/EntityFrameworkCore.ExtensibleMigrations.csproj" />
+    </Folder>
+    <Folder Name="/tests/">
+        <Project Path="tests/EntityFrameworkCore.ExtensibleMigrations.Tests/EntityFrameworkCore.ExtensibleMigrations.Tests.csproj" />
+        <Project Path="tests/integration/EntityFrameworkCore.ExtensibleMigrations.IntegrationTests/EntityFrameworkCore.ExtensibleMigrations.IntegrationTests.csproj" />
+    </Folder>
+    <Folder Name="/tests/fixtures/">
+        <Project Path="tests/integration/fixtures/Scenario.MaterializedView/Scenario.MaterializedView.csproj" />
+        <Project Path="tests/integration/fixtures/Scenario.MultiExtension/Scenario.MultiExtension.csproj" />
+    </Folder>
+    <Folder Name="/samples/">
+        <Project Path="samples/MaterializedViewSample/MaterializedViewSample.csproj" />
+    </Folder>
+</Solution>

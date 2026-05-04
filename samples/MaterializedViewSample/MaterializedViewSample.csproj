@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\EntityFrameworkCore.ExtensibleMigrations\EntityFrameworkCore.ExtensibleMigrations.csproj" />
+    </ItemGroup>
+    <!-- ProjectReference does NOT propagate the framework's buildTransitive flow
+       (that's a NuGet-only mechanism), so we import the .targets explicitly.
+       Real NuGet consumers don't need this — installing the package alone is
+       sufficient. -->
+    <Import Project="..\..\src\EntityFrameworkCore.ExtensibleMigrations\buildTransitive\EntityFrameworkCore.ExtensibleMigrations.targets" />
+</Project>
