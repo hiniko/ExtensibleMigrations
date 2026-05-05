@@ -26,6 +26,18 @@
         "--verbosity",
         "quiet"
       ]
+    },
+    {
+      "name": "dotnet-integration-test",
+      "group": "pre-commit",
+      "command": "dotnet",
+      "args": [
+        "test",
+        "tests/integration/EntityFrameworkCore.ExtensibleMigrations.IntegrationTests/EntityFrameworkCore.ExtensibleMigrations.IntegrationTests.csproj",
+        "--nologo",
+        "--verbosity",
+        "quiet"
+      ]
     }
   ]
 }
