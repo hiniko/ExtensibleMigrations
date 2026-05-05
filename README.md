@@ -2,7 +2,7 @@
 
 An EF Core design-time extension framework for teaching the migration system about your own concepts, so they get diffed, scaffolded, and snapshotted like first-class citizens.
 
-[![NuGet](https://img.shields.io/nuget/v/EntityFrameworkCore.ExtensibleMigrations.svg)](https://www.nuget.org/packages/EntityFrameworkCore.ExtensibleMigrations) [![CI](https://github.com/hiniko/extensible-migrations/actions/workflows/ci.yml/badge.svg)](https://github.com/hiniko/extensible-migrations/actions)
+[![NuGet](https://img.shields.io/nuget/v/EntityFrameworkCore.ExtensibleMigrations.svg)](https://www.nuget.org/packages/EntityFrameworkCore.ExtensibleMigrations) [![ci](https://github.com/hiniko/ExtensibleMigrations/actions/workflows/ci.yml/badge.svg)](https://github.com/hiniko/ExtensibleMigrations/actions/workflows/ci.yml)
 
 ## Why
 
