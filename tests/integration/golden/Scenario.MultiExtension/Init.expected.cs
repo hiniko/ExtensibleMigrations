@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -15,26 +15,18 @@ namespace Scenario.MultiExtension.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table
-                        .Column<int>(type: "integer", nullable: false)
-                        .Annotation(
-                            "Npgsql:ValueGenerationStrategy",
-                            NpgsqlValueGenerationStrategy.IdentityByDefaultColumn
-                        ),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    Sku = table.Column<string>(type: "text", nullable: false),
+                    Sku = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
-                }
-            );
-            migrationBuilder.Sql(
-                "CREATE MATERIALIZED VIEW \"ProductCount\" AS SELECT COUNT(*) AS \"Count\" FROM \"Products\";"
-            );
-            migrationBuilder.Sql(
-                "CREATE INDEX \"ix_gin_Products_Name\" ON \"Products\" USING gin (to_tsvector('english', \"Name\"));"
-            );
+                });
+            migrationBuilder.Sql("CREATE MATERIALIZED VIEW \"ProductCount\" AS SELECT COUNT(*) AS \"Count\" FROM \"Products\";");
+            migrationBuilder.Sql("CREATE INDEX \"ix_gin_Products_Name\" ON \"Products\" USING gin (to_tsvector('english', \"Name\"));");
+
         }
 
         /// <inheritdoc />
@@ -43,7 +35,8 @@ namespace Scenario.MultiExtension.Migrations
             migrationBuilder.Sql("DROP MATERIALIZED VIEW IF EXISTS \"ProductCount\";");
             migrationBuilder.Sql("DROP INDEX IF EXISTS \"ix_gin_Products_Name\";");
 
-            migrationBuilder.DropTable(name: "Products");
+            migrationBuilder.DropTable(
+                name: "Products");
         }
     }
 }
