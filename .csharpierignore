@@ -1,0 +1,11 @@
+# Generated migrations — must reflect raw EF scaffold output, not csharpier style.
+samples/*/Migrations/
+tests/integration/fixtures/*/Migrations/
+
+# Golden files capture EF's exact scaffolded output and must not be reformatted.
+tests/integration/golden/
+
+# Build artefacts
+**/bin/
+**/obj/
+artifacts/
