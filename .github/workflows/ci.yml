@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: webiny/action-conventional-commits@v1.3.0
+      - uses: webiny/action-conventional-commits@v1.4.2
         with:
           allowed-commit-types: "feat,fix,docs,style,refactor,perf,test,build,ci,chore,revert"
 
@@ -28,7 +28,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '10.0.x'
       - run: dotnet tool restore
@@ -36,14 +36,14 @@ jobs:
       - run: dotnet build -c Release --no-restore
       - run: dotnet test tests/EntityFrameworkCore.ExtensibleMigrations.Tests/ -c Release --no-build --logger "trx;LogFileName=test-results.trx" --collect:"XPlat Code Coverage"
       - run: dotnet pack src/EntityFrameworkCore.ExtensibleMigrations/ -c Release --no-build -o ./artifacts
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-results-${{ matrix.os }}
           path: |
             **/test-results.trx
             **/coverage.cobertura.xml
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest'
         with:
           name: nupkg
@@ -71,12 +71,12 @@ jobs:
         cell: ${{ fromJson(needs.prepare-compat-matrix.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: ${{ matrix.cell.dotnetSdkVersion }}
       - name: Run cell
         run: bash scripts/run-compat-cell.sh "${{ matrix.cell.efCoreVersion }}" "${{ matrix.cell.npgsqlEfCoreVersion }}" "${{ matrix.cell.dotnetEfToolVersion }}"
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: compat-results-${{ matrix.cell.name }}
